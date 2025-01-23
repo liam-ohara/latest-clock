@@ -40,4 +40,22 @@ class MainTest {
         assertEquals(expected, result);
 
     }
+
+    @Test
+    @DisplayName("Returns 23:59 when given 9, 3, 2, 5 as inputs")
+    void testMakeLatestClock_WhenGivenNineThreeTwoFive() {
+
+        int firstDigit = 9;
+        int secondDigit = 3;
+        int thirdDigit = 2;
+        int fourthDigit = 5;
+        String expected = "23:59";
+
+        String result = Main.makeLatestClock(firstDigit, secondDigit, thirdDigit,fourthDigit);
+
+        assertEquals(expected, result);
+
+    }
+
+
 }
