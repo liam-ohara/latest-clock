@@ -6,4 +6,12 @@ public class Main {
     }
 
 
+    public static String makeLatestClock(int firstDigit, int secondDigit, int thirdDigit, int fourthDigit) {
+
+        String latestClock = "00:00";
+
+        return latestClock;
+    }
+
+
 }
