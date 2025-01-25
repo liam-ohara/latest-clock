@@ -9,12 +9,40 @@ import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
+        userPrompt();
 
     }
 
 
+    public static void userPrompt() throws IOException {
+        System.out.println("==Latest Clock==\n----------------\nReturns the latest valid time based on your input of four digits.");
 
+        int temp = 0;
+        int[] digitArray = new int[4];
+        String latestTime = "";
+
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+            for (int i = 0; i < 4; i++) {
+                System.out.println("Please enter digit #" + (i+1) + ": ");
+                temp = Integer.parseInt(bufferedReader.readLine());
+                if (temp >= 0 && temp <=9) {
+                    digitArray[i] = temp;
+                } else {
+                    throw new NumberFormatException();
+                }
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid entry. Please only enter single positive digits.\nInput will now reset from the start.\n");
+            userPrompt();
+        }
+
+        latestTime = makeLatestClock(digitArray[0], digitArray[1], digitArray[2], digitArray[3]);
+
+        System.out.println("The latest valid time possible with those four digits is: " + latestTime);
+    }
 
 
     public static String makeLatestClock(int firstDigit, int secondDigit, int thirdDigit, int fourthDigit) {
