@@ -1,12 +1,20 @@
 package liamohara;
 
+import javax.imageio.IIOException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collections;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+    public static void main(String[] args) throws IOException {
+
+
     }
+
+
+
 
 
     public static String makeLatestClock(int firstDigit, int secondDigit, int thirdDigit, int fourthDigit) {
@@ -40,7 +48,7 @@ public class Main {
                 i = digits.length;
 
             } else if (firstHourDigit < 2 && digits[i] <= 9) {
-                secondMinuteDigit = digits[i];
+                secondHourDigit = digits[i];
                 digits[i] = 0;
                 i = digits.length;
             }
