@@ -38,7 +38,7 @@ Once you have run the application with the command above, you will be shown the 
 >5 <br />
 >Please enter digit #4: <br />
 >3 <br />
->The latest valid time possible with those four digits is: 23:59<br />
+>The latest valid time possible with those four digits is: 23:49<br />
 
 #### Invalid input 
 >==Latest Clock==<br />
