@@ -84,7 +84,7 @@ public class Main {
         Arrays.sort(digits, Collections.reverseOrder());
 
         for (int i = 0; i < digits.length; i++) {
-            if (firstHourDigit == 2 && digits[i] < 5) {
+            if (firstHourDigit == 2 && digits[i] < 4) {
                 secondHourDigit = digits[i];
                 digits[i] = 0;
                 i = digits.length;
