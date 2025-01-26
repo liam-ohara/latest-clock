@@ -20,24 +20,38 @@ public class Main {
         int temp = 0;
         int[] digitArray = new int[4];
         String latestTime = "";
+        boolean isInvalidEntry = true;
 
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        while (isInvalidEntry) {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-            for (int i = 0; i < 4; i++) {
-                System.out.println("Please enter digit #" + (i+1) + ": ");
-                temp = Integer.parseInt(bufferedReader.readLine());
-                if (temp >= 0 && temp <=9) {
-                    digitArray[i] = temp;
-                } else {
-                    throw new NumberFormatException();
+                for (int i = 0; i < 4; i++) {
+                    System.out.println("Please enter digit #" + (i + 1) + ": ");
+                    temp = Integer.parseInt(bufferedReader.readLine());
+                    if (temp >= 0 && temp <= 9) {
+                        digitArray[i] = temp;
+                    } else {
+                        throw new NumberFormatException();
+                    }
                 }
-            }
 
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid entry. Please only enter single positive digits.\nInput will now reset from the start.\n");
-            userPrompt();
+                isInvalidEntry = false;
+
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid entry. Please only enter single positive digits.\nInput will now reset from the start.\n");
+                isInvalidEntry = true;
+                temp = 0;
+                digitArray[0] = 0;
+                digitArray[1] = 0;
+                digitArray[2] = 0;
+                digitArray[3] = 0;
+                latestTime = "";
+             }
+
         }
+
+
 
         latestTime = makeLatestClock(digitArray[0], digitArray[1], digitArray[2], digitArray[3]);
 
@@ -117,6 +131,4 @@ public class Main {
 
         return latestClock;
     }
-
-
 }
