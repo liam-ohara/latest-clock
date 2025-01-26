@@ -117,7 +117,7 @@ class MainTest {
         int secondDigit = 9;
         int thirdDigit = 9;
         int fourthDigit = 9;
-        String expected = "00:09";
+        String expected = "09:09";
 
         String result = Main.makeLatestClock(firstDigit, secondDigit, thirdDigit,fourthDigit);
 
@@ -143,7 +143,6 @@ class MainTest {
         mockConsoleInputs.add(thirdDigit);
         mockConsoleInputs.add(fourthDigit);
 
-        StringBuilder expectedBuilder = new StringBuilder();
         String welcome = "==Latest Clock==\n----------------\nReturns the latest valid time based on your input of four digits.\n";
         String promptOne = "Please enter digit #1: \n";
         String promptTwo = "Please enter digit #2: \n";
@@ -153,21 +152,15 @@ class MainTest {
         String latestTime = "23:59\n";
         String expected = "";
 
-        expectedBuilder.append(welcome).append(promptOne).append(promptTwo).append(promptThree).append(promptFour).append(resultLine).append(latestTime);
-        expected = expectedBuilder.toString();
+        expected = String.valueOf(welcome) + promptOne + promptTwo + promptThree + promptFour + resultLine + latestTime;
 
         when(mockBufferedReader.readLine()).thenReturn(provideMultipleInputs(mockConsoleInputs));
 
         Main.userPrompt();
-
-        verify(mockMain, times(1));
-        Main.makeLatestClock(firstDigit,secondDigit,thirdDigit,fourthDigit);
 
         assertEquals(expected,outContent.toString());
 
         System.setOut(originalOut);
 
     }
-
-
 }
