@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="latest-clock:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/latest-clock_jar</output-path>
+    <root id="archive" name="latest-clock.jar">
+      <element id="module-output" name="latest-clock" />
+    </root>
+  </artifact>
+</component>
